@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fun with flags</title>
+  <!-- CSS  -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- My CSS -->
+  <link rel="stylesheet" href="css/header_footer.css" />
+  <link rel="stylesheet" href="css/previewContry.css" />
+  <link rel="stylesheet" href="css/singelCountry.css" />
+  <!-- CSS end -->
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="image/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="image/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="image/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="image/favicon_io/site.webmanifest">
+  <!-- favicon end -->
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Maze&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+  <!-- fonts end -->
+  <!-- My JS -->
+  <script defer type="module" src="js/app.js"></script>
+  <!-- My JS end-->
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <!-- Navbar from bootstarp -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+      <div class="container-fluid ">
+        <a id="id_home" class="navbar-brand" href="#">Country search</a>
+        <!-- Burger BTN -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Burger BTN end -->
+        <!-- div that collapse on small screen -->
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <!-- Country Links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li id="id_israel_li" class="nav-item id_israel">
+              <a class="nav-link active" aria-current="page" href="#">Israel</a>
+            </li>
+            <li id="id_USA_li" class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">USA</a>
+            </li>
+            <li id="id_France_li" class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">France</a>
+            </li>
+            <li id="id_UK_li" class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">United Kingdom</a>
+            </li>
+            <li id="id_thailand_li" class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Thailand</a>
+            </li>
+          </ul>
+          <!-- Country Links end -->
+          <!-- Select box with Country list -->
+          <select id="id_select_country" class="form-select selectCountry" aria-label="Default select example">
+            <option value="0" selected>Select Country</option>
+          </select>
+          <!-- Select box with Country list end -->
+          <!-- SearchForm By name  -->
+          <form class="d-flex " role="search">
+            <input id="id_input" class="form-control me-2 myInput" type="search" placeholder="Search By name"
+              aria-label="Search" />
+            <button id="id_search_btn" class="btn btn-outline-light" type="button">
+              Search
+            </button>
+          </form>
+          <!-- SearchForm By name  -->
+        </div>
+        <!-- div that collapse on small screen end -->
+      </div>
+    </nav>
+  </header>
+  <!-- Header end -->
+
+  <!-- Main -->
+  <main class="container-fluid " style="background-image: url(image/szabo-viktor-iexov9ffqbm-unsplash_optimized.jpg);
+   background-position: center bottom; background-size: cover; ">
+    <!-- Loading Div -->
+    <div id="id_load" class="text-center pt-5">
+      <div>
+        <img class="earthLoad" src="image/output-onlinegiftools .gif" alt="Earth">
+      </div>
+    </div>
+    <!-- Loading Div end -->
+    <!-- Parent Div GET all UI -->
+    <div class="container py-3 ">
+      <div id="id_parent" class="">
+      </div>
+    </div>
+    <!-- Parent Div GET all UI end -->
+
+  </main>
+  <!-- Main end -->
+
+  <!-- Footer -->
+  <footer class="container-fluid d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top ">
+
+    <p class="col-md-4 mb-0 text-muted p-3">© 2022 Ben Shirom, Inc</p>
+    <!-- link -->
+    <ul class="nav col-md-4 justify-content-end p-3 fs-5">
+      <li class="nav-item">
+        <a target="_blank" href="https://www.linkedin.com/in/ben-shirom" class=" nav-link px-1 px-sm-2 text-muted "><i
+            class="fa fa-linkedin-square" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a target="_blank" href="https://github.com/benshirom" class="nav-link px-1 px-sm-2 text-muted"><i
+            class="fa fa-github-square" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a target="_blank"
+          href="https://api.whatsapp.com/send?phone=9720527222768&text=%D7%94%D7%99%D7%99%20%D7%91%D7%9F%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8"
+          class="nav-link px-1 px-sm-2 text-muted">
+          <i class="fa fa-whatsapp" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+    <!-- link end -->
+
+  </footer>
+  <!-- Footer end-->
+
+  <!-- AOS Animate  -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <!-- AOS Animate end -->
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+    </script>
+  <!-- JavaScript Bundle with Popper end -->
+
+</body>
+
+</html>

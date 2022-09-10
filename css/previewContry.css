@@ -1,0 +1,26 @@
+.preBox {
+    cursor: pointer;
+    min-height: 360px;
+}
+
+.preBox img{
+    height: 200px;
+    width: 100%;
+}
+/*  */
+@media (max-width:768px){
+    .preBox {
+        min-width: 90%;
+        min-height: 400px;
+    }
+}
+@media (max-width:550px){
+    .preBox {
+        min-height: 300px;
+    }
+}
+@media (max-width:350px){
+    .preBox {
+        min-height: 200px;
+    }
+}

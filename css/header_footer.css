@@ -1,0 +1,41 @@
+body{  
+ font-family: 'Rubik', sans-serif;
+ background-color: black;
+}
+header nav
+{
+    min-height: 80px;
+}
+.selectCountry{
+    width: 200px;
+    margin: 0px 5px 0px 0px;
+}
+
+main{   
+ min-height: 400px;
+}
+
+.earthLoad{
+    max-width: 200px;
+    max-height: 200px;
+}
+
+@media (max-width:1115px){
+    .selectCountry{
+        width: 145px;
+    }
+
+    .myInput{
+    width: 150px;
+    }
+}
+
+@media (max-width:992px){
+  .selectCountry{
+        width: 100%;
+        margin: 0px 0px 5px 0px;
+    }
+  .myInput{
+    width: 100%;
+   }
+}
