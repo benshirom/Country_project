@@ -88,10 +88,7 @@ export const searchPreviewCountry = (_input) => {
   document.querySelector("#id_parent").innerHTML = "";
   let arr=searchByName(_input)
 
-  if (_input === "" || _input === " ") {
-    alert("empty");
-  }
-   else if (arr.length > 0) {
+    if (arr.length > 0) {
     arr.forEach((item) => {
       let country = new Country("#id_parent", item);
       country.previewRender();

@@ -30,7 +30,7 @@ export const declareEvents = () => {
     
     search_btn.addEventListener("click", () => {
         if (input_search.value === "" || input_search.value === " ") {
-            alert("empty");
+            console.log("Empty")
         } else {
             parent.innerHTML = "";
             select_box.value= searchPreviewCountry(input_search.value);
