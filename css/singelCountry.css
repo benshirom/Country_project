@@ -1,5 +1,6 @@
 .borderstyle:hover{
     color:darksalmon;
+    cursor: pointer;
 }
 
 .map{

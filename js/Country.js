@@ -59,7 +59,7 @@ export default class Country {
         this.borders.forEach(async (item) => {
           const name = await getNameByCodeCountry(item)
           let span = document.createElement("span");
-          span.style = "cursor: pointer";
+          span.className = "borderstyle";
           span.innerHTML = `${name}.`;
           pBorder.append(span);
 
@@ -78,7 +78,6 @@ export default class Country {
           const name = await getNameByCodeCountry(item)
           let span = document.createElement("span");
           span.className = "borderstyle";
-          span.style = "cursor: pointer";
           span.innerHTML = `${name}, `;
           pBorder.append(span);
 
@@ -91,7 +90,6 @@ export default class Country {
           });
 
           lastBorder.className = "borderstyle";
-          lastBorder.style = "cursor: pointer";
           pBorder.append(lastBorder);
         });
         
