@@ -1,12 +1,13 @@
-import { createCountry, createCountryByCode, startPreviewCountry, searchPreviewCountry } from "./CountryManager.js";
+import { createCountry, createCountryByCode, startPreviewCountries, searchPreviewCountry } from "./CountryManager.js";
 
 export const declareEvents = () => {
 
-    let parent = document.querySelector("#id_parent")
     let id_Logo = document.querySelector("#id_home")
+    let parent = document.querySelector("#id_parent")
     let select_box = document.querySelector("#id_select_country")
     let search_btn = document.querySelector("#id_search_btn")
     let input_search = document.querySelector("#id_input")
+   
     let israel_li = document.querySelector(".id_israel")
     let USA_li = document.querySelector("#id_USA_li")
     let France_li = document.querySelector("#id_France_li")
@@ -17,11 +18,12 @@ export const declareEvents = () => {
     
     id_Logo.addEventListener("click", () => {
         parent.innerHTML = "";
-        startPreviewCountry();
+        startPreviewCountries();
+        select_box.value=0;
     })
+
     select_box.addEventListener("change", () => {
         if (select_box.value != "0") {
-            
             parent.innerHTML = "";
             createCountry(select_box.value);
             input_search.value = select_box.value;
@@ -37,6 +39,8 @@ export const declareEvents = () => {
             
         }
     })
+
+    // Event Listener to specific countries in the nav bar
     israel_li.addEventListener("click", () => {
         parent.innerHTML = "";
         compere(createCountryByCode("isr"));
@@ -59,7 +63,7 @@ export const declareEvents = () => {
         compere( createCountryByCode("tha"));
     })
 
-
+// Compere The Input search and The Select Box value
     const compere = (_input) => {
         input_search.value=_input;
         select_box.value=_input;

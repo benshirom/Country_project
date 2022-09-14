@@ -2,7 +2,10 @@
     cursor: pointer;
     min-height: 360px;
 }
-
+.Myprecard-body{
+    border-radius: 0px 0px 5px 5px;
+    background-color: black;
+}
 .preBox img{
     height: 200px;
     width: 100%;

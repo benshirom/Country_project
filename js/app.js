@@ -1,4 +1,4 @@
-import { getCountries,fillSelectBox,startPreviewCountry } from "./CountryManager.js";
+import { getCountries,fillSelectBox,startPreviewCountries, } from "./CountryManager.js";
 import { declareEvents } from "./Events.js";
 
 const init = () => {
@@ -16,7 +16,7 @@ const doApi = async () => {
   getCountries(data);
 
   //first pre of 5 countreis
-  startPreviewCountry();
+  startPreviewCountries();
 
   fillSelectBox();
 };

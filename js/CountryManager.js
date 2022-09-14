@@ -10,31 +10,31 @@ const firstCountries = [
 
 export const searchByName = (_input) => {
   let arr = allCountries_ar.filter((item) =>
-  item.name.common.toLowerCase().includes(_input.toLowerCase())
-);
-return arr;
+    item.name.common.toLowerCase().includes(_input.toLowerCase())
+  );
+  return arr;
 }
 export const searchByNameCode = (_input) => {
   let arr = allCountries_ar.filter((item) =>
-  item.cca3.toLowerCase().includes(_input.toLowerCase())
-);
-return arr;
+    item.cca3.toLowerCase().includes(_input.toLowerCase())
+  );
+  return arr;
 }
 //render country by name 
 export const createCountry = (_input) => {
   document.querySelector("#id_parent").innerHTML = "";
-  let arr=searchByName(_input);
-   
+  let arr = searchByName(_input);
+
   if (arr.length > 0) {
-    arr.forEach((item,i) => {
-      let country = new Country("#id_parent", item);
-      country.render(i);
-    });
+
+    let country = new Country("#id_parent", arr[0],setFuncCountry);
+    country.render();
+
   } else {
     countryNotFound(_input)
   }
-  
-  
+
+
   document.querySelector("#id_load").classList.add("d-none");
   if (arr[0] != null) { return arr[0].name.common }
 };
@@ -43,18 +43,15 @@ export const createCountry = (_input) => {
 export const createCountryByCode = (_input) => {
   document.querySelector("#id_parent").innerHTML = "";
 
-  let arr=searchByNameCode(_input);
-  
-  if (_input === "" || _input === " ") {
-    alert("empty");
-  }
-   else if (arr.length > 0) {
+  let arr = searchByNameCode(_input);
+
+  if (arr.length > 0) {
     arr.forEach((item) => {
-      let country = new Country("#id_parent", item);
+      let country = new Country("#id_parent", item,setFuncCountry);
       country.render();
     });
   }
-   else {
+  else {
     countryNotFound(_input);
 
   }
@@ -70,31 +67,31 @@ export const getCountries = (_data) => {
 };
 
 //render to the first preview countries
-export const startPreviewCountry = () => {
-  document.querySelector("#id_input").value="";
-  
+export const startPreviewCountries = () => {
+  document.querySelector("#id_input").value = "";
+
   document.querySelector("#id_load").classList.add("d-none");
   let tmpArr = [];
   tmpArr = allCountries_ar.filter((item) =>
     firstCountries.includes(item.name.common.toLowerCase())
   );
   tmpArr.forEach((item) => {
-    let country = new Country("#id_parent", item);
+    let country = new Country("#id_parent", item,setFuncCountry);
     country.previewRender();
   });
 };
-
+// function that is activated in on search and displays the previewRender
 export const searchPreviewCountry = (_input) => {
   document.querySelector("#id_parent").innerHTML = "";
-  let arr=searchByName(_input)
+  let arr = searchByName(_input)
 
-    if (arr.length > 0) {
+  if (arr.length > 0) {
     arr.forEach((item) => {
-      let country = new Country("#id_parent", item);
+      let country = new Country("#id_parent", item,setFuncCountry);
       country.previewRender();
     });
   }
-   else {
+  else {
     countryNotFound(_input)
   }
   document.querySelector("#id_load").classList.add("d-none");
@@ -104,6 +101,7 @@ export const searchPreviewCountry = (_input) => {
 // fill the options to select box
 export const fillSelectBox = () => {
   let select = document.querySelector("#id_select_country");
+
   allCountries_ar.forEach((item) => {
     select.innerHTML += `
     <option value="${item.name.common}">${item.name.common}</option>`;
@@ -123,39 +121,44 @@ const mySort = () => {
     return 0;
   });
 };
-
-const countryNotFound =(_input) =>{
-  document.querySelector(
-    "#id_parent"
-  ).innerHTML = `  
-  <div class="card Myprecard-body" style="width: 18rem;">
+// 
+const countryNotFound = (_input) => {
+  let parent = document.querySelector("#id_parent");
+  parent.classList.add("row");
+  parent.innerHTML = `  
+  <div class="card Myprecard-body " style="width: 18rem;">
   <div class="card-body text-center">
     <h5 class="card-title Mycard-text">sorry...</h5>
     <h6 class="card-subtitle mb-2  Mycard-text">Country <b>${_input}</b> is  not found</h6>
     
   </div>
 </div> `
-  ;
-let btn = document.createElement("button")
-btn.className="btn btn-light";
-btn.type="button";
-btn.innerHTML="OK";
-btn.addEventListener("click", () => {
-  document.querySelector(
-    "#id_parent"
-  ).innerHTML ="";
-  startPreviewCountry();
-})
-document.querySelector(".card-body").append(btn);
+    ;
+  let btn = document.createElement("button")
+  btn.className = "btn btn-light";
+  btn.type = "button";
+  btn.innerHTML = "OK";
+  btn.addEventListener("click", () => {
+    document.querySelector(
+      "#id_parent"
+    ).innerHTML = "";
+    startPreviewCountries();
+  })
+  document.querySelector(".card-body").append(btn);
 }
-//
-export  const  getNameByCodeCountry= async(_code)=>{
+// async func that give the country name 
+export const getNameByCodeCountry = async (_code) => {
   let url = `https://restcountries.com/v3.1/alpha/${_code.toLowerCase()}`;
   let resp = await fetch(url);
   let data = await resp.json();
-  let {name} = data[0];
+  let { name } = data[0];
   return name.common;
-  
-}
 
+}
+/// func used by the country class 
+const setFuncCountry={
+  getNameByCodeCountry,
+  createCountryByCode,
+  startPreviewCountries
+}
 

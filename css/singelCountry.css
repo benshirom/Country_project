@@ -2,7 +2,10 @@
     color:darksalmon;
     cursor: pointer;
 }
-
+.home_btn:hover{
+    cursor: pointer;
+    color:darksalmon;
+}
 .map{
     height: 100%;
     width: 100%;
@@ -36,9 +39,7 @@
     border-radius: 5px;
     background-color: black;
 }
-.Myprecard-body{
-    background-color: black;
-}
+
 
 @media (max-width:767px){
     .flagImg{
@@ -60,4 +61,9 @@
         color:darksalmon;
     
     } 
+    .home_btn{
+        color:darksalmon;
+    
+    } 
+    
 }
