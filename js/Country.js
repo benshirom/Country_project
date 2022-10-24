@@ -79,9 +79,9 @@ export default class Country {
           span.innerHTML = ` ${name}.`;
           pBorder.append(span);
 
-          span.addEventListener("click", () => {
-            document.querySelector("#id_input").value = name;
-            document.querySelector("#id_select_country").value = name;
+          span.addEventListener("click",async () => {
+            document.querySelector("#id_input").value = await name;
+            document.querySelector("#id_select_country").value = await name;
             this.createCountryByCode(item);
           });
 

@@ -39,6 +39,14 @@ export const declareEvents = () => {
             
         }
     })
+    input_search.addEventListener("keypress",(e)=>{
+        if (input_search.value === "" || input_search.value === " ") {
+            console.log("Empty")
+        }else if(e.key=="Enter"){
+            parent.innerHTML = "";
+            select_box.value= searchPreviewCountry(input_search.value);
+        }
+    })
 
     // Event Listener to specific countries in the nav bar
     israel_li.addEventListener("click", () => {
